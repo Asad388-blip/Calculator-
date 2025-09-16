@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #708dad, #1b6a4a);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .calculator {
+            width: 354px;
+            padding: 20px;
+            border-radius: 15px;
+            background: #cccaca;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        #display {
+            width: 100%;
+            height: 70px;
+            margin-bottom: 20px;
+            padding: 15px;
+            font-size: 28px;
+            text-align: right;
+            border: none;
+            border-radius: 8px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 22px;
+            border: none;
+            border-radius: 10px;
+            background-color: #6b6868;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        /* Operator buttons */
+        button:nth-child(5),
+        button:nth-child(9),
+        button:nth-child(13),
+        button:nth-child(17) {
+            background-color: #407fd8;
+        }
+
+        /* Clear button */
+        button:nth-child(1) {
+            background-color: #ff3b30;
+        }
+
+        /* Equals button */
+        button:nth-child(16) {
+            background-color: #20903c;
+        }
+
+        /* Hover effects */
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Operator buttons hover */
+        button:nth-child(5):hover,
+        button:nth-child(9):hover,
+        button:nth-child(13):hover,
+        button:nth-child(17):hover {
+            background-color: #e67e22;
+        }
+
+        /* Clear button hover */
+        button:nth-child(1):hover {
+            background-color: #dc2626;
+        }
+
+        /* Equals button hover */
+        button:nth-child(16):hover {
+            background-color: #2eaf4f;
+        }
+
+        /* Active state for all buttons */
+        button:active {
+            transform: translateY(0);
+            box-shadow:none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button onclick="appendOperator('/')">/</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button onclick="appendOperator('*')">*</button>
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button onclick="appendOperator('-')">-</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="appendNumber('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="appendOperator('+')">+</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
